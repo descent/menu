@@ -134,6 +134,7 @@ int Time(int argc, char *argv[])
 
 int TimeAsm(int argc, char *argv[])
 {
+#ifdef __x86_64__
     time_t tt;
     struct tm *t;
     asm volatile(
@@ -145,6 +146,7 @@ int TimeAsm(int argc, char *argv[])
     );
     t = localtime(&tt);
     printf("time:%d:%d:%d:%d:%d:%d\n",t->tm_year+1900, t->tm_mon, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+#endif
     return 0;
 }
 int main()
