@@ -134,7 +134,7 @@ int Time(int argc, char *argv[])
 
 int TimeAsm(int argc, char *argv[])
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__i386__)
     time_t tt;
     struct tm *t;
     asm volatile(
